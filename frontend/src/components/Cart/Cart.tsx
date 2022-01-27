@@ -43,6 +43,10 @@ const Cart = ({ cart, getCart }: Props) => {
     await getCart();
   }
 
+  function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
   const makeOrder = async () => {
     const order = cart.items.map((item) => {
       let order = {
@@ -53,8 +57,8 @@ const Cart = ({ cart, getCart }: Props) => {
       };
       return order;
     });
-
     await createOrder({ order })
+    await delay(1000);
     await emptyCart();
     
     setActiveModal('orderSuccess');
