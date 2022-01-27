@@ -57,8 +57,8 @@ const Cart = ({ cart, getCart }: Props) => {
       };
       return order;
     });
-    await createOrder({ order })
     await delay(1000);
+    await createOrder({ order })
     await emptyCart();
     
     setActiveModal('orderSuccess');
