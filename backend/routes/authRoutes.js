@@ -16,6 +16,18 @@ const generateToken = (data) => {
  *   description: The auth managing API
  */
 
+/**
+ * @swagger
+ * components:
+ *  securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
+ *
+ * security:
+ *   - bearerAuth: []
+ */
 
 
 /**
@@ -125,6 +137,8 @@ const generateToken = (data) => {
  * @swagger
  * /api/auth/register:
  *   post:
+ *     security:
+ *      - bearerAuth: []
  *     summary: Register a new user
  *     tags: [Auth]
  *     requestBody:
@@ -190,7 +204,9 @@ router.post('/register', async ({ body }, res) => {
  * @swagger
  * /api/auth/login:
  *   post:
- *     summary: Register a new user
+ *     security:
+ *      - bearerAuth: []
+ *     summary: Login
  *     tags: [Auth]
  *     requestBody:
  *       required: true
