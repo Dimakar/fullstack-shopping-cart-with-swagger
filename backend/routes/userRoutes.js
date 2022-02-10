@@ -8,7 +8,7 @@ const router = express.Router();
 /**
  * @swagger
  * tags:
- *   name: Users
+ *   name: User
  *   description: The users managing API
  */
 
@@ -47,6 +47,19 @@ const router = express.Router();
  *           items:
  *              type: object
  *              properties:
+ *                name:
+ *                  type: string
+ *                price:
+ *                  type: integer
+ *                quantity:
+ *                  type: integer
+ *                dateCreated:
+ *                  type: integer
+ *              example:
+ *                dateCreated: 1639147410646
+ *                name: "Samsung Galaxy A3"
+ *                price: 150
+ *                quantity: 2
  *
  *       example:
  *           address: "russia"
@@ -78,6 +91,8 @@ const router = express.Router();
  * @swagger
  * /api/user:
  *   get:
+ *     security:
+ *      - bearerAuth: []
  *     summary: Register a new user
  *     tags: [User]
  *     responses:
@@ -97,9 +112,11 @@ router.get('/', checkToken, (req, res) => {
  * @swagger
  * /api/user:
  *   put:
- *     summary: Register a new user
+ *     security:
+ *      - bearerAuth: []
+ *     summary: Change user
  *     tags: [User]
- *    requestBody:
+ *     requestBody:
  *       required: true
  *       content:
  *         application/json:
@@ -108,7 +125,7 @@ router.get('/', checkToken, (req, res) => {
  *     responses:
  *       200:
  *         description: The user was successfully updated
- *        content:
+ *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Message'
