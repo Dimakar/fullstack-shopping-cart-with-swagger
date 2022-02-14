@@ -22,9 +22,7 @@ const jsonParser = bodyParser.json();
  *       type: object
  *       properties:
  *         product:
- *           type: array
- *           items:
- *             $ref: '#/components/schemas/CatalogResponse'
+ *           $ref: '#/components/schemas/CatalogResponse'
  *         quantity:
  *           type: integer
  *           example: 1
@@ -228,13 +226,14 @@ router.put('/', checkToken, jsonParser, (req, res) => {
  *   delete:
  *     security:
  *      - bearerAuth: []
+ *     summary: clear the cart
  *     tags: [Cart]
  *     parameters:
  *        - in: query
  *          name: id
  *          required: true
  *          schema:
- *             type: integer
+ *             type: string
  *     responses:
  *       200:
  *         description: The cart is empty

@@ -93,7 +93,7 @@ const router = express.Router();
  *   get:
  *     security:
  *      - bearerAuth: []
- *     summary: Register a new user
+ *     summary: Get user information
  *     tags: [User]
  *     responses:
  *       200:
