@@ -4,7 +4,7 @@ This project is based on https://github.com/ivan3123708/fullstack-shopping-cart 
 
 Run `docker-compose`
 ```
-$ cd fullstack-shopping-cart
+$ cd fullstack-shopping-cart-with-swagger
 $ docker-compose up -d
 ```
 
